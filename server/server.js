@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 const {ObjectId} = require('mongodb');
+var PORT = process.env.PORT || 9000;
 
 var {mongoose} = require('./db/mongoose');
 var {Todo} = require('./models/todo');
@@ -47,6 +48,6 @@ app.get('/todos/:id', (req, res) => {
     });
 });
 
-app.listen(9000, () => {
-    console.log(`Listening on port ${9000}`);
+app.listen(PORT, () => {
+    console.log(`Listening on port ${ PORT }`);
 });

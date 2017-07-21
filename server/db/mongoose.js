@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
 
-mongoose.Promise = global.Promise;
+const dbURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/TodoApp';
 
-mongoose.connect('mongodb://127.0.0.1:27017/TodoApp', {useMongoClient: true});
+mongoose.Promise = global.Promise;
+mongoose.connect(dbURI, {useMongoClient: true});
 // use mongo client is for remove deprecation warning
 
 module.exports = {
