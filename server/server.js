@@ -25,6 +25,17 @@ app.post('/todos', (req, res) => {
     });
 });
 
+app.get('/todos', (req, res) => {
+    Todo.find().then((result) => {
+        res.send({
+            count: result.length ,
+            result // returning array of all todos
+        });
+    }, (error) => {
+        res.status(400).send(error);
+    });
+});
+
 app.listen(9000, () => {
     console.log(`Listening on port ${9000}`);
 });
